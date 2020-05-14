@@ -1,4 +1,5 @@
-/*The client-side code of the application will be loaded in the browser from the bundled
+/*Client-side Webpack configuration for development.
+The client-side code of the application will be loaded in the browser from the bundled
 code in bundle.js.*/
 
 const config = {
