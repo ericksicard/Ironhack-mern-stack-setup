@@ -1,8 +1,8 @@
 {
-  "name": "mern-setup",
+  "name": "ironhack-mern-stack-setup",
   "version": "1.0.0",
   "description": "MERN Stack - Developmen Enviroment Setup",
-  "main": "index.js",
+  "main": "template.js",
   "repository": "https://github.com/esrfree/Ironhack-mern-stack-setup.git",
   "author": "Erick Sicard",
   "license": "MIT",

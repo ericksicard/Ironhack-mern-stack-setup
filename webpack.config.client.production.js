@@ -5,8 +5,12 @@ mode, but without the hot-reloading plugin and debug configuration as these will
 be required in production.
 With the bundling configurations in place, we can add configuration for running
 these generated bundles automatically on code updates during development using
-Nodemon.
-*/
+Nodemon.*/
+
+const path = require('path');
+const webpack = require('webpack');
+const CURRENT_WORKING_DIR = process.cwd();
+
 const config = {
     mode: "production",
     entry: [ path.join(CURRENT_WORKING_DIR, 'client/main.js') ],
@@ -25,3 +29,5 @@ const config = {
         ]
     }
 }
+
+module.exports = config;

@@ -2,6 +2,10 @@
 The client-side code of the application will be loaded in the browser from the bundled
 code in bundle.js.*/
 
+const path = require('path');
+const webpack = require('webpack');
+const CURRENT_WORKING_DIR = process.cwd();
+
 const config = {
     name: "browser",
 
@@ -56,3 +60,5 @@ const config = {
         }
     }
 }
+
+module.exports = config;
