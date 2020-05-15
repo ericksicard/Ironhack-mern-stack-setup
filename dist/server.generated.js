@@ -87,6 +87,18 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./config/config.js":
+/*!**************************!*\
+  !*** ./config/config.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {\n  return a;\n};\n\n/*Definition of some server-side configuration-related variables that\nwill be used in the code but should not be hardcoded as a best practice,\nas well as for security purposes.\nThese variables will give us the flexibility to change values from a single\nfile and use it across the backend code.*/\nconst config = {\n  env: \"development\" || false,\n  //To differentiate between development and production modes\n  port: process.env.PORT || 3000,\n  //To define the listening port for the server\n  jwtSecret: process.env.JWT_SECRET || \"Ironhackers\",\n  //The secret key to be used to sign JWT\n  mongoUri: process.env.MONGODB_URI || //The location of the MongoDB database instance for the project\n  process.env.MONGO_HOST || 'mongodb://' + (process.env.IP || 'localhost') + ':' + (process.env.MONGO_PORT || '27017') + '/ironhack-mern-stack-setup'\n};\nconst _default = config;\n/* harmony default export */ __webpack_exports__[\"default\"] = (_default);\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(config, \"config\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/config/config.js\");\n  reactHotLoader.register(_default, \"default\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/config/config.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./config/config.js?");
+
+/***/ }),
+
 /***/ "./node_modules/webpack/buildin/harmony-module.js":
 /*!*******************************************!*\
   !*** (webpack)/buildin/harmony-module.js ***!
@@ -121,6 +133,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 
 /***/ }),
 
+/***/ "./server/express.js":
+/*!***************************!*\
+  !*** ./server/express.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var body_parser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! body-parser */ \"body-parser\");\n/* harmony import */ var body_parser__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(body_parser__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var cookie_parser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! cookie-parser */ \"cookie-parser\");\n/* harmony import */ var cookie_parser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(cookie_parser__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var compression__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! compression */ \"compression\");\n/* harmony import */ var compression__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(compression__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var cors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! cors */ \"cors\");\n/* harmony import */ var cors__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(cors__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var helmet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! helmet */ \"helmet\");\n/* harmony import */ var helmet__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(helmet__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _template__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../template */ \"./template.js\");\n/* harmony import */ var _devBundle__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./devBundle */ \"./server/devBundle.js\");\n(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {\n  return a;\n};\n\n\n\n/*bodyParser is a middleware to handle the complexities of parsing streamable request objects\nso that we can simplify browser-server communication by exchanging JSON in the request body*/\n\n\n/*Cookie parsing middleware to parse and set cookies in request objects.*/\n\n\n/*Compression middleware that will attempt to compress response bodies for all requests that\ntraverse through the middleware.*/\n\n\n/*Middleware to enable cross-origin resource sharing (CORS).*/\n\n\n/*Collection of middleware functions to help secure Express apps by setting various HTTP headers.*/\n\n\n\n //comment out before building for production !!!\n\nconst app = express__WEBPACK_IMPORTED_MODULE_0___default()();\n/*In development mode, when this line is executed, Webpack will compile and bundle the React\ncode to place it in dist/bundle.js.*/\n\n_devBundle__WEBPACK_IMPORTED_MODULE_8__[\"default\"].compile(app); //comment out before building for production !!!\n\napp.use(body_parser__WEBPACK_IMPORTED_MODULE_2___default.a.json());\napp.use(body_parser__WEBPACK_IMPORTED_MODULE_2___default.a.urlencoded({\n  extended: true\n}));\napp.use(cookie_parser__WEBPACK_IMPORTED_MODULE_3___default()());\napp.use(compression__WEBPACK_IMPORTED_MODULE_4___default()());\napp.use(helmet__WEBPACK_IMPORTED_MODULE_6___default()());\napp.use(cors__WEBPACK_IMPORTED_MODULE_5___default()()); // Serving static files from the dist folder\n\n/*Webpack will compile client-side code in both development and production mode,\nthen place the bundled files in the dist folder. These two lines configure the\nExpress app to return static files from the dist folder when the requested route\nstarts with /dist.*/\n\nconst CURRENT_WORKING_DIR = process.cwd();\napp.use('/dist', express__WEBPACK_IMPORTED_MODULE_0___default.a.static(path__WEBPACK_IMPORTED_MODULE_1___default.a.join(CURRENT_WORKING_DIR, 'dist'))); // Rendering templates at the root\n\n/*When the server receives a request at the root URL /, we will render template.js in\nthe browser.*/\n\napp.get('/', (req, res) => {\n  res.status(200).send(Object(_template__WEBPACK_IMPORTED_MODULE_7__[\"default\"])());\n});\nconst _default = app;\n/* harmony default export */ __webpack_exports__[\"default\"] = (_default);\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(app, \"app\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/server/express.js\");\n  reactHotLoader.register(CURRENT_WORKING_DIR, \"CURRENT_WORKING_DIR\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/server/express.js\");\n  reactHotLoader.register(_default, \"default\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/server/express.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./server/express.js?");
+
+/***/ }),
+
 /***/ "./server/server.js":
 /*!**************************!*\
   !*** ./server/server.js ***!
@@ -129,7 +153,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! mongodb */ \"mongodb\");\n/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(mongodb__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _template__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../template */ \"./template.js\");\n/* harmony import */ var _devBundle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./devBundle */ \"./server/devBundle.js\");\n(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {\n  return a;\n};\n\n\n\n\n //comment out before building for production !!!\n\n\nconst app = express__WEBPACK_IMPORTED_MODULE_0___default()(); //comment out before building for production !!!\n\n/*In development mode, when this line is executed, Webpack will compile and bundle the React\ncode to place it in dist/bundle.js.*/\n\n_devBundle__WEBPACK_IMPORTED_MODULE_4__[\"default\"].compile(app); // Serving static files from the dist folder\n\n/*Webpack will compile client-side code in both development and production mode,\nthen place the bundled files in the dist folder. These two lines configure the\nExpress app to return static files from the dist folder when the requested route\nstarts with /dist.\n*/\n\nconst CURRENT_WORKING_DIR = process.cwd();\napp.use('/dist', express__WEBPACK_IMPORTED_MODULE_0___default.a.static(path__WEBPACK_IMPORTED_MODULE_1___default.a.join(CURRENT_WORKING_DIR, 'dist'))); // Rendering templates at the root\n\n/*When the server receives a request at the root URL /, we will render template.js in\nthe browser.*/\n\napp.get('/', (req, res) => {\n  res.status(200).send(Object(_template__WEBPACK_IMPORTED_MODULE_3__[\"default\"])());\n}); // Express app to start a server that listens on the specified port for incoming requests\n\nlet port = process.env.PORT || 3000;\napp.listen(port, function onStart(err) {\n  if (err) console.log(err);\n  console.info('Server started on port %s.', port);\n}); //Connecting the server to MongoDB\n\n/*MongoClient is the driver that connects to the running MongoDB instance using its URL.\nIt allows us to implement the database-related code in the backend.*/\n\nconst url = process.env.MONGODB_URI || 'mongodb://localhost:27017/Ironhack-mern-stack-setup';\nmongodb__WEBPACK_IMPORTED_MODULE_2__[\"MongoClient\"].connect(url, (err, db) => {\n  console.log(\"Connected successfully to mongodb server\");\n  db.close();\n});\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(app, \"app\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/server/server.js\");\n  reactHotLoader.register(CURRENT_WORKING_DIR, \"CURRENT_WORKING_DIR\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/server/server.js\");\n  reactHotLoader.register(port, \"port\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/server/server.js\");\n  reactHotLoader.register(url, \"url\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/server/server.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./server/server.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongodb */ \"mongodb\");\n/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongodb__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _config_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../config/config */ \"./config/config.js\");\n/* harmony import */ var _express__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./express */ \"./server/express.js\");\n(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {\n  return a;\n};\n\n\n\n // Express app to start a server that listens on the specified port for incoming requests\n\n_express__WEBPACK_IMPORTED_MODULE_2__[\"default\"].listen(_config_config__WEBPACK_IMPORTED_MODULE_1__[\"default\"].port, err => {\n  if (err) console.log(err);\n  console.info('Server started on port %s.', _config_config__WEBPACK_IMPORTED_MODULE_1__[\"default\"].port);\n}); //Connecting the server to MongoDB\n\n/*MongoClient is the driver that connects to the running MongoDB instance using its URL.\nIt allows us to implement the database-related code in the backend.*/\n\nconst url = process.env.MONGODB_URI || 'mongodb://localhost:27017/Ironhack-mern-stack-setup';\nmongodb__WEBPACK_IMPORTED_MODULE_0__[\"MongoClient\"].connect(url, (err, db) => {\n  console.log(\"Connected successfully to mongodb server\");\n  db.close();\n});\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(url, \"url\", \"/mnt/c/Users/esrfr/Desktop/Ironhack/Project/Ironhack-mern-stack-setup/server/server.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./server/server.js?");
 
 /***/ }),
 
@@ -167,6 +191,50 @@ eval("module.exports = __webpack_require__(/*! /mnt/c/Users/esrfr/Desktop/Ironha
 
 /***/ }),
 
+/***/ "body-parser":
+/*!******************************!*\
+  !*** external "body-parser" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"body-parser\");\n\n//# sourceURL=webpack:///external_%22body-parser%22?");
+
+/***/ }),
+
+/***/ "compression":
+/*!******************************!*\
+  !*** external "compression" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"compression\");\n\n//# sourceURL=webpack:///external_%22compression%22?");
+
+/***/ }),
+
+/***/ "cookie-parser":
+/*!********************************!*\
+  !*** external "cookie-parser" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"cookie-parser\");\n\n//# sourceURL=webpack:///external_%22cookie-parser%22?");
+
+/***/ }),
+
+/***/ "cors":
+/*!***********************!*\
+  !*** external "cors" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"cors\");\n\n//# sourceURL=webpack:///external_%22cors%22?");
+
+/***/ }),
+
 /***/ "express":
 /*!**************************!*\
   !*** external "express" ***!
@@ -175,6 +243,17 @@ eval("module.exports = __webpack_require__(/*! /mnt/c/Users/esrfr/Desktop/Ironha
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///external_%22express%22?");
+
+/***/ }),
+
+/***/ "helmet":
+/*!*************************!*\
+  !*** external "helmet" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"helmet\");\n\n//# sourceURL=webpack:///external_%22helmet%22?");
 
 /***/ }),
 

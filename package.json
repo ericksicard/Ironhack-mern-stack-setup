@@ -6,22 +6,24 @@
   "repository": "https://github.com/esrfree/Ironhack-mern-stack-setup.git",
   "author": "Erick Sicard",
   "license": "MIT",
-
   "scripts": {
     "dev": "nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
     "start": "NODE_ENV=production node ./dist/server.generated.js"
   },
-  
   "dependencies": {
     "@hot-loader/react-dom": "16.13.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "express": "4.17.1",
+    "helmet": "^3.22.0",
     "mongodb": "3.5.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-hot-loader": "4.12.20"
   },
-
   "devDependencies": {
     "@babel/core": "7.9.0",
     "@babel/preset-env": "7.9.0",
@@ -35,4 +37,3 @@
     "webpack-node-externals": "1.7.2"
   }
 }
-
