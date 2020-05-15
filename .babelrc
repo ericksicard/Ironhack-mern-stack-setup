@@ -10,6 +10,9 @@ module to compile React components.
         [
             "@babel/preset-env",
             {
+                /*Setting targets.node to current instructs Babel to compile against the current
+                version of Node and allows us to use expressions such as async/await in our
+                backend code.*/
                 "targets": { "node": "current" }
             }
         ],
