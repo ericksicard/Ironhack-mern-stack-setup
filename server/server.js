@@ -1,4 +1,5 @@
 import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 
 import config from './../config/config'
 import app from './express'
@@ -11,10 +12,14 @@ app.listen(config.port, err => {
 })
 
 //Connecting the server to MongoDB
-/*MongoClient is the driver that connects to the running MongoDB instance using its URL.
-It allows us to implement the database-related code in the backend.*/
-const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/Ironhack-mern-stack-setup';
-MongoClient.connect( url, (err, db) => {
-    console.log("Connected successfully to mongodb server")
-    db.close()
+/*Mongoose configuration to use native ES6 promises, and handles the connection to the
+MongoDB database.*/
+mongoose.Promise = global.Promise;
+mongoose.connect( config.mongoUri, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+})
+mongoose.connection.on('error', () => {
+    throw new Error(`unable to connect to database: ${mongoUri}`)
 })
