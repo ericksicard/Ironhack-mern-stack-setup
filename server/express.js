@@ -42,9 +42,8 @@ starts with /dist.*/
 const CURRENT_WORKING_DIR = process.cwd()
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
-// Rendering templates at the root
-/*When the server receives a request at the root URL /, we will render template.js in
-the browser.*/
+// Rendering the template at the root
+/*When the server receives a request at the root URL /, we will render template.js in the browser.*/
 app.get('/', (req, res) => {
     res.status(200).send(Template())
     })
