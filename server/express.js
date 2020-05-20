@@ -19,6 +19,7 @@ import cors from 'cors'
 import helmet from 'helmet';
 
 import Template from '../template'
+import userRoutes from './routes/user.routes'
 import devBundle from './devBundle'; //comment out before building for production !!!
 
 const app = express();
@@ -47,6 +48,9 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.get('/', (req, res) => {
     res.status(200).send(Template())
     })
-    
+
+/*All routes and API endpoints need to be mounted on the Express app so that they can be
+accessed from the client-side.*/
+app.use('/', userRoutes)    
 
 export default app;
