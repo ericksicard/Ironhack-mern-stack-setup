@@ -11,7 +11,8 @@ import errorHandler from '../helpers/dbErrorHandler';
 import User from '../models/user.model';
 
 //Creating a new user
-/*This function creates a new user with the user JSON object that's received in the POST request from
+/*When the Express app gets a POST request at '/api/users', it calls the create function.
+This function creates a new user with the user JSON object that's received in the POST request from
 the frontend within req.body. The call to user.save attempts to save the new user in the database after
 Mongoose has performed a validation check on the data. Consequently, an error or success response is
 returned to the requesting client.
@@ -40,9 +41,9 @@ const create = async (req, res) => {
 and updated fields in the resulting user list, and then returns this list of users as JSON objects in an array
 to the requesting client.
 */
-const list = (req, res) => {
+const list = async (req, res) => {
     try {
-        let users = await User.find().select('nane email updated created')
+        let users = await User.find().select('name email updated created')
         res.json(users)
     }
     catch (err) {

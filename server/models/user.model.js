@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import crypto from 'crypto'
 
 /*The mongoose.Schema() function takes a schema definition object as a parameter to
@@ -17,16 +17,16 @@ const UserSchema = new mongoose.Schema({
         match: [/.+\@.+\..+/, 'Please fill a valid email address'],
         required: 'Email is required'
     },
-    created: {
-        type: Date,
-        default: Date.now
-    },
-    updated: Date,
     hashed_password: {
         type: String,
         required: "Password is required"
     },
-    salt: String
+    salt: String,
+    created: {
+        type: Date,
+        default: Date.now
+    },
+    updated: Date
 })
 
 /*The password string that's provided by the user is not stored directly in the user
@@ -35,7 +35,7 @@ UserSchema
     .virtual('password')
     .set( function(password) {
         this._password = password;
-        this.salt = this.makeSalt();
+        this.salt = this.makeSalt()
         this.hashed_password = this.encryptPassword(password)
     })
     .get( function() {
@@ -46,13 +46,13 @@ UserSchema
 to add custom validation logic and associate it with the hashed_password field in the schema.*/
 UserSchema
     .path('hashed_password')
-    .validate( function(value) {
+    .validate( function(v) {
         if (this._password && this._password.length < 6) {
             this.invalidate('password', 'Password must be at least 6 characters.')
         }
         if (this.isNew && !this._password) {
             this.invalidate('password', 'Password is required')
-        } 
+        }
     }, null)
 
 /*These UserSchema methods are used to encrypt the user-provided password string into a hashed_password
@@ -60,7 +60,7 @@ with a randomly generated salt value. The hashed_password and the salt are store
 when the user details are saved to the database on a create or update. Both the hashed_password and salt
 values are required in order to match and authenticate a password string provided during user sign-in using
 the authenticate method.*/
-UserSchema.method = {
+UserSchema.methods = {
     /*This method is called to verify sign-in attempts by matching the user-provided
     password text with the hashed_password stored in the database for a specific user.*/
     authenticate: function(plainText) {
@@ -72,9 +72,9 @@ UserSchema.method = {
         if (!password) return ''
         try {
             return crypto
-                .createHmac('esr', this.salt)
-                .update(password)
-                .digest('hex')
+                    .createHmac('sha1', this.salt)
+                    .update(password)
+                    .digest('hex')
         }
         catch(err) {
             return '';
@@ -83,9 +83,8 @@ UserSchema.method = {
     /*This method generates a unique and random salt value using the current timestamp at
     execution and Math.random().*/
     makeSalt: function() {
-        return Math.round((new Date().valueOf() * Math.random())) + ''
+        return Math.round( (new Date().valueOf() * Math.random()) ) + ''
     }
-
 }
 
 export default mongoose.model('User', UserSchema);
