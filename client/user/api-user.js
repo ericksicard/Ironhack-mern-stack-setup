@@ -85,3 +85,22 @@ const update = async (params, credentials, user) => {
     }
     catch(err) { console.log(err) }
 }
+
+//Deleting a user
+/*The remove method will allow the view component to delete a specific user from the database and use fetch to make a DELETE call.
+This is a protected route that will require a valid JWT as a credential, similar to the read and update methods.
+*/
+const remove = async (params, credentials) => {
+    try {
+        let response = await fetch('/api/users/' + params.userId, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + credentials.t
+            }
+        })
+        return response.json();
+    }
+    catch(err) { console.log(err) }
+}
