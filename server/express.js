@@ -13,13 +13,14 @@ traverse through the middleware.*/
 import compress from 'compression';
 
 /*Middleware to enable cross-origin resource sharing (CORS).*/
-import cors from 'cors'
+import cors from 'cors';
 
 /*Collection of middleware functions to help secure Express apps by setting various HTTP headers.*/
 import helmet from 'helmet';
 
-import Template from '../template'
-import userRoutes from './routes/user.routes'
+import Template from '../template';
+import userRoutes from './routes/user.routes';
+import authRoutes from './routes/auth.routes';
 import devBundle from './devBundle'; //comment out before building for production !!!
 
 const app = express();
@@ -51,6 +52,7 @@ app.get('/', (req, res) => {
 
 /*All routes and API endpoints need to be mounted on the Express app so that they can be
 accessed from the client-side.*/
-app.use('/', userRoutes)    
+app.use('/', userRoutes)
+app.use('/', authRoutes)
 
 export default app;

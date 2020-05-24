@@ -1,14 +1,22 @@
-import express from 'express'
-import userCtrl from '../controllers/user.controller'
+// ADDING USER CRUD APIs
+/*The user API endpoints exposed by the Express app will allow the frontend to
+perform CRUD operations on documents that are generated according to the user
+model. To implement these working endpoints, we will write Express routes and the
+corresponding controller callback functions that should be executed when HTTP
+requests come in for these declared routes. In this section, we will look at how these
+endpoints work without any auth restrictions.*/
+
+import express from 'express';
+import userCtrl from '../controllers/user.controller';
 
 /*The user routes that are defined here will use express.Router() to define route paths
 with the relevant HTTP methods and assign the corresponding controller function that
 should be called when these requests are received by the server.
 We will keep the user routes simplistic by using the following:
-    /api/users for the following:
+    '/api/users' for the following:
         - Listing users with GET
         - Creating a new user with POST
-    /api/users/:userId for the following:
+    '/api/users/:userId' for the following:
         - Fetching a user with GET
         - Updating a user with PUT
         - Deleting a user with DELETE
