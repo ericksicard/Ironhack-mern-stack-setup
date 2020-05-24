@@ -64,3 +64,24 @@ const read = async (params, credentials, signal) => {
     }
     catch(err) { console.log(err) }
 }
+
+//Updating a user's data
+/*The update method will take changed user data from the view component for a specific user, then use fetch to make a
+PUT call to update the existing user in the backend. This is also a protected route that will require a valid JWT as
+the credential.
+*/
+const update = async (params, credentials, user) => {
+    try {
+        let response = await fetch('/api/users/' + params.userId, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + credentials.t
+            },
+            body: JSON.stringify(user)
+        })
+        return response.json();
+    }
+    catch(err) { console.log(err) }
+}
