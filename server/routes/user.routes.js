@@ -8,6 +8,7 @@ endpoints work without any auth restrictions.*/
 
 import express from 'express';
 import userCtrl from '../controllers/user.controller';
+import authCtrl from '../controllers/auth.controller';
 
 /*The user routes that are defined here will use express.Router() to define route paths
 with the relevant HTTP methods and assign the corresponding controller function that
@@ -25,16 +26,20 @@ const router = express.Router()
 
 /*When the server receives requests at each of these defined routes, the corresponding
 controller functions are invoked. The functionality for each of these controller methods
-will be defined and exported from the user.controller.js file.
-*/
+will be defined and exported from the user.controller.js file.*/
+
 router.route('/api/users')
     .get(userCtrl.list)
     .post(userCtrl.create)
 
+/*The route to read a user's information only needs authentication verification, whereas
+the update and delete routes should check for both authentication and authorization
+before these CRUD operations are executed.
+*/
 router.route('/api/users/:userId')
-    .get(userCtrl.read)
-    .put(userCtrl.update)
-    .delete(userCtrl.remove)
+    .get(authCtrl.requireSignin, userCtrl.read)
+    .put(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.update)
+    .delete(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.remove)
 
 router.param('userId', userCtrl.userByID)
 
