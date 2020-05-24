@@ -36,13 +36,12 @@ export default function Home() {
                 className={classes.media}
                 image={unicornbikeImg}
                 title='Unicorn Bicycle'
-            >
-                <CardContent>
-                    <Typography variant='body2' component='p'>
-                        Welcome to the MERN Stack Setup home page
-                    </Typography>
-                </CardContent>
-            </CardMedia>
+            />
+            <CardContent>
+                <Typography variant='body2' component='p'>
+                    Welcome to the MERN Stack Setup home page
+                </Typography>
+            </CardContent>
         </Card>
     )
 }
