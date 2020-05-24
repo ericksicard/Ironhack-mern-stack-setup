@@ -38,7 +38,7 @@ app.use(cors())
 
 // Serving static files from the dist folder
 /*Webpack will compile client-side code in both development and production mode, then place the
-bundled files in the dist folder. These two lines configure theExpress app to return static files
+bundled files in the dist folder. These two lines configure the Express app to return static files
 from the dist folder when the requested route starts with /dist.
 */
 const CURRENT_WORKING_DIR = process.cwd()

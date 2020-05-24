@@ -1,9 +1,12 @@
-/*The main.js file simply renders the top-level entry React component in the div
-element in the HTML document.*/
+//Entry point at main.js
+/*This file will be the entry point to render the complete React app, as already
+indicated in the client-side Webpack configuration object. Here, we import the root
+or top-level React component(App) that will contain the whole frontend and render it to
+the div element with the 'root' ID specified in the HTML document in template.js.*/
 
-import React from 'react'
-import { render } from 'react-dom'
+import React from 'react';
+import { render } from 'react-dom';
 
-import HelloWorld from './HelloWorld'
+import App from './App';
 
-render(<HelloWorld/>, document.getElementById('root'))
+render(<App/>, document.getElementById('root'))
