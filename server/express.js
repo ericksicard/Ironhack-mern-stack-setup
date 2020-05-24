@@ -37,10 +37,10 @@ app.use(helmet())
 app.use(cors())
 
 // Serving static files from the dist folder
-/*Webpack will compile client-side code in both development and production mode,
-then place the bundled files in the dist folder. These two lines configure the
-Express app to return static files from the dist folder when the requested route
-starts with /dist.*/
+/*Webpack will compile client-side code in both development and production mode, then place the
+bundled files in the dist folder. These two lines configure theExpress app to return static files
+from the dist folder when the requested route starts with /dist.
+*/
 const CURRENT_WORKING_DIR = process.cwd()
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
@@ -50,9 +50,26 @@ app.get('/', (req, res) => {
     res.status(200).send(Template())
     })
 
-/*All routes and API endpoints need to be mounted on the Express app so that they can be
-accessed from the client-side.*/
+/*All routes and API endpoints need to be mounted on the Express app so that they can be accessed from
+the client-side.*/
 app.use('/', userRoutes)
 app.use('/', authRoutes)
+
+//Auth error handling for express-jwt
+/*We will handle auth-related errors thrown by express-jwt when it tries to validate JWT tokens in
+incoming requests.
+express-jwt throws an error named UnauthorizedError when a token cannot be validated for some reason.
+We catch this error here to return a 401 status back to the requesting client. We also add a response
+to be sent if other server-side errors are generated and caught here.
+*/
+app.use( (err, req, res, next) =>{
+    if (err.name === 'UnauthorizedError') {
+        res.status(401).json({ 'error': err.name + ': ' + err.message })
+    }
+    else if (err) {
+        res.status(400).json({"error" : err.name + ": " + err.message})
+        console.log(err)
+    }
+})
 
 export default app;
