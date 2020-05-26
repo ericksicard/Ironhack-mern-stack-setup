@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -42,6 +44,7 @@ export default function Home() {
                     Welcome to the MERN Stack Setup home page
                 </Typography>
             </CardContent>
+            <Link to="/users">Users</Link>
         </Card>
     )
 }
