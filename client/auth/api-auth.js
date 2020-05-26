@@ -25,3 +25,17 @@ const signin = async (user) => {
     }
     catch(err) { console.log(err) }
 }
+
+//Sign-out
+/*This method will use fetch to make a GET call to the signout API endpoint on the server.*/
+const signout = async () => {
+    try {
+        let response = await fetch('/auth/signout/', {
+            method: 'GET'
+        })
+        return await response.json();
+    }
+    catch(err) { console.log(err) }
+}
+
+export { signin, signout }
