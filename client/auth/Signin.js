@@ -5,9 +5,10 @@ the received JWT credentials. For redirection, we will use the Redirect componen
 */
 
 import React, { useState } from 'react';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 
-import { signin } from './api-auth.js'
+import { signin } from './api-auth.js';
+import auth from './../auth/auth-helper';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -62,7 +63,9 @@ export default function Signin( props ) {
                     setValues({ ...values, error: data.error })
                 }
                 else {
-                    setValues({ ...values, error: '', redirectToReferrer: true })
+                    auth.authenticate( data, () => {
+                        setValues({ ...values, error: '', redirectToReferrer: true })
+                    })
                 }
             })
     }
