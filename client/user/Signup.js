@@ -46,6 +46,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Signup() {
     const classes = useStyles()
+    /*the state is initialized using the useState hook with empty input field values, an empty error message,
+    and set the dialog open variable to false.*/
     const [ values, setValues ] = useState({
         name: '',
         password: '',
