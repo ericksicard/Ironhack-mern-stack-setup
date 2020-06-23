@@ -5,8 +5,8 @@ or top-level React component(App) that will contain the whole frontend and rende
 the div element with the 'root' ID specified in the HTML document in template.js.*/
 
 import React from 'react';
-import { render } from 'react-dom';
+import { hydrate } from 'react-dom';
 
 import App from './App';
 
-render(<App/>, document.getElementById('root'))
+hydrate(<App/>, document.getElementById('root'))

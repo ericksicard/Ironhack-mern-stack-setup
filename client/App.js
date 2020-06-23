@@ -21,13 +21,22 @@ import { hot } from 'react-hot-loader'
 import MainRouter from './MainRouter'
 import theme from './theme'
 
-const App = () => (
+const App = () => {
+
+    React.useEffect(() => {
+      const jssStyles = document.querySelector('#jss-server-side')
+      if (jssStyles) {
+        jssStyles.parentNode.removeChild(jssStyles)
+      }
+    }, [])
+    
+    return (
     <BrowserRouter>
         <ThemeProvider theme={theme}>
-            <MainRouter />
+          <MainRouter/>
         </ThemeProvider>
     </BrowserRouter>
-)
+  )}
 
 //Marking the root component as hot-exported
 /*Marking the App component as hot in this way essentially enables live reloading of our React components
