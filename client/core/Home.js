@@ -44,8 +44,6 @@ export default function Home() {
                     Welcome to the MERN Stack Setup home page
                 </Typography>
             </CardContent>
-            <Link to="/users">Users</Link> <br/>
-            <Link to="/signup">Signup</Link>
         </Card>
     )
 }
