@@ -7,7 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
-import unicornbikeImg from './../assets/images/unicornbike.jpg';
+import MERNStackImg from './../assets/images/MERN-Stack.jpg';
+import { findLastIndex } from 'lodash';
 
 /*The JSS style objects defined here will be injected into the component using the hook returned by makeStyles.
 The makeStyles hook API takes a function as an argument and gives access to our custom theme variables, which
@@ -23,7 +24,9 @@ const useStyles = makeStyles( theme => ({
         color: theme.palette.openTitle
     },
     media: {
-        minHeight: 400
+        minHeight: 400,
+        display: 'flex',
+        alignItems: 'center',
     }
 }))
 
@@ -36,7 +39,7 @@ export default function Home() {
             </Typography>
             <CardMedia
                 className={classes.media}
-                image={unicornbikeImg}
+                image={MERNStackImg}
                 title='Unicorn Bicycle'
             />
             <CardContent>

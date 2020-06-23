@@ -8,7 +8,7 @@ call, and, on successful update, redirect the user to the Profile view with upda
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function EditProfile({ match }) {
-    const classes = useStyle()
+    const classes = useStyles()
     const jwt = auth.isAuthenticated();
     const [ values, setValues ] = useState({
         name: '',
@@ -62,7 +62,7 @@ export default function EditProfile({ match }) {
     /* "EditProfile" will load the user information by fetching with "read" in useEffect using the userId
     parameter from match.params. It will gather credentials from "auth.isAuthenticated".
     */
-   useEffect( () => {
+    useEffect( () => {
         const abortController = new AbortController();
         const signal = abortController.signal;
 
@@ -83,43 +83,43 @@ export default function EditProfile({ match }) {
         return function cleanup() {
             abortController.abort()
         }
-   }, [match.params.userId])
+    }, [match.params.userId])
 
    /*
    On form submit, the component will call the "update" fetch method with the userId, JWT and updated user data.   
    */
-  const clickSubmit = () => {
-      const user = {
-          name: values.name || undefined,
-          email: values.email || undefined,
-          password: values.password || undefined
-      }
+    const clickSubmit = () => {
+        const user = {
+            name: values.name || undefined,
+            email: values.email || undefined,
+            password: values.password || undefined
+        }
 
-      update(
-        { userId: match.params.userId },
-        { t: jwt.token },
-        user
-      )
-      .then( data => {
-          if (data && data.error) {
-              setValues({ ...values, error: data.error })
-          }
-          else {
-              setValues({ ...values, userId: data._id, redirectToProfile: true })
-          }
-      })
-  }
+        update(
+            { userId: match.params.userId },
+            { t: jwt.token },
+            user
+        )
+        .then( data => {
+            if (data && data.error) {
+                setValues({ ...values, error: data.error })
+            }
+            else {
+                setValues({ ...values, userId: data._id, redirectToProfile: true })
+            }
+        })
+    }
 
-  const handleChange = name => event => {
-        setValues({ ...values, [name]: event.taget.value })
-  }
+    const handleChange = (event, name) => {
+        setValues({ ...values, [name]: event.target.value })
+    }
 
   /*Depending on the response from the server, the user will either see an error message or be redirected to
   the updated Profile page using the Redirect component.
   */
-  if (values.redirectToProfile) {
+    if (values.redirectToProfile) {
         return (<Redirect to={ '/user/' + values.userId } />)
-  }
+    }
 
     return (
         <Card className={classes.card}>
@@ -132,25 +132,25 @@ export default function EditProfile({ match }) {
                     label="Name"
                     className={classes.textField}
                     value={values.name}
-                    onChange={handleChange('name')}
+                    onChange={ event => handleChange(event, 'name')}
                     margin="normal"
                 /><br/>
-                <TextField
-                    id="email"
-                    type="email"
-                    label="Email"
-                    className={classes.textField}
-                    value={values.email}
-                    onChange={handleChange('email')}
-                    margin="normal"
-                /><br/>
+                <TextField 
+                    id="email" 
+                    type="email" 
+                    label="Email" 
+                    className={classes.textField} 
+                    value={values.email} 
+                    onChange={ event => handleChange(event, 'email')} 
+                    margin="normal"/>
+                <br/>
                 <TextField
                     id="password"
                     type="password"
                     label="Password"
                     className={classes.textField}
                     value={values.password}
-                    onChange={handleChange('password')}
+                    onChange={ event => handleChange(event, 'password')}
                     margin="normal"
                 /><br/>
                 {
